@@ -35,5 +35,6 @@ uint64_t kexecute(uint64_t addr, uint64_t x0, uint64_t x1, uint64_t x2, uint64_t
     pthread_mutex_lock(&kexecute_lock);
     returnval = kernel_call_7(addr, 7, x0, x1, x2, x3, x4, x5, x6);
     pthread_mutex_unlock(&kexecute_lock);
+    LOG(""ADDR"("ADDR", "ADDR", "ADDR", "ADDR", "ADDR", "ADDR", "ADDR"): "ADDR"", addr, x0, x1, x2, x3, x4, x5, x6, returnval);
     return returnval;
 }
